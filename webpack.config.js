@@ -11,5 +11,17 @@ module.exports = {
     // 出力ファイル名
     filename: 'main.js'
   },
+
+  // devServerの設定
+  devServer: {
+    contentBase: 'dist',
+    open: true,
+    proxy: {
+      "/api": {
+        target: "sample",
+        pathRewrite: {"^/api" : ""}
+      }
+    }
+  }
 };
 
